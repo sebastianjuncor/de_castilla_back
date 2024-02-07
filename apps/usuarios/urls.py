@@ -11,3 +11,7 @@ router.register(r'permisos',PermisoCRUD )
 router.register(r'roles',RolCRUD )
 router.register(r'rol_has_permiso',RolHasPermisoCRUD )
 router.register(r'usuarios',UsuarioCRUD )
+
+urlpatterns=[
+    path('',include(router.urls)),
+]

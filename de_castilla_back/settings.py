@@ -31,11 +31,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api',
     'pedidos',
     'usuarios',
     'ventas',
     'proveedores',
+    'inventarios',
     'corsheaders',
     'rest_framework',
     'django.contrib.admin',
