@@ -59,7 +59,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PedidoSerializer(serializers.ModelSerializer):
-    pedido = EstadoPedidoSerializer(source = 'id_estado_pedido_fk', read_only = True)
+    estado_pedido = EstadoPedidoSerializer(source = 'id_estado_pedido_fk', read_only = True)
     usuario = UsuarioSerializer(source = 'no_documento_usuario_fk', read_only = True)
     class Meta:
         model = Pedido
@@ -98,7 +98,6 @@ class OrdenCompraSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CalificacionSerializer(serializers.ModelSerializer):
-    pedido = PedidoSerializer(source = 'id_pedido_fk', read_only = True)
     proveedor = ProveedorSerializer(source = 'id_proveedor_fk', read_only = True)
     class Meta:
         model = Calificacion
