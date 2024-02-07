@@ -1,13 +1,7 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
 from pedidos.models import Pedido
+from usuarios.models import Usuario
 
 
 class Calificacion(models.Model):
@@ -44,18 +38,6 @@ class DetalleOc(models.Model):
         managed = False
         db_table = 'detalle_oc'
 
-
-class DetalleVenta(models.Model):
-    id_detalle_venta = models.BigAutoField(primary_key=True)
-    cantidad_producto = models.IntegerField(blank=True, null=True)
-    subtotal_detalle_venta = models.BigIntegerField(blank=True, null=True)
-    id_producto_fk = models.ForeignKey('Producto', models.DO_NOTHING, db_column='id_producto_fk', blank=True, null=True)
-    id_venta_fk = models.ForeignKey('Venta', models.DO_NOTHING, db_column='id_venta_fk', blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'detalle_venta'
 
 
 class EstadoInsumo(models.Model):
@@ -142,15 +124,6 @@ class OrdenCompra(models.Model):
 
 
 
-class Permiso(models.Model):
-    id_permiso = models.BigAutoField(primary_key=True)
-    descripcion_permiso = models.CharField(max_length=255, blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'permiso'
-
 
 class Producto(models.Model):
     id_producto = models.BigAutoField(primary_key=True)
@@ -180,26 +153,6 @@ class Proveedor(models.Model):
         managed = False
         db_table = 'proveedor'
 
-
-class Rol(models.Model):
-    id_rol = models.BigAutoField(primary_key=True)
-    nombre_rol = models.CharField(max_length=255, blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'rol'
-
-
-class RolHasPermiso(models.Model):
-    id_rol_has_permiso = models.BigAutoField(primary_key=True)
-    id_permiso_fk = models.ForeignKey(Permiso, models.DO_NOTHING, db_column='id_permiso_fk', blank=True, null=True)
-    id_rol_fk = models.ForeignKey(Rol, models.DO_NOTHING, db_column='id_rol_fk', blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'rol_has_permiso'
 
 
 class Sabor(models.Model):
@@ -232,31 +185,3 @@ class TipoMovimiento(models.Model):
         managed = False
         db_table = 'tipo_movimiento'
 
-
-class Usuario(models.Model):
-    no_documento_usuario = models.BigAutoField(primary_key=True)
-    apellido_usuario = models.CharField(max_length=255, blank=True, null=True)
-    celular_usuario = models.BigIntegerField(blank=True, null=True)
-    email = models.CharField(max_length=255, blank=True, null=True)
-    nombre_usuario = models.CharField(max_length=255, blank=True, null=True)
-    password = models.CharField(max_length=255, blank=True, null=True)
-    id_rol_fk = models.ForeignKey(Rol, models.DO_NOTHING, db_column='id_rol_fk', blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'usuario'
-
-
-class Venta(models.Model):
-    id_venta = models.BigAutoField(primary_key=True)
-    fecha_venta = models.DateField(blank=True, null=True)
-    hora_venta = models.TimeField(blank=True, null=True)
-    total_venta = models.BigIntegerField(blank=True, null=True)
-    id_pedido_fk = models.ForeignKey(Pedido, models.DO_NOTHING, db_column='id_pedido_fk', blank=True, null=True)
-    no_documento_usuario_fk = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='no_documento_usuario_fk', blank=True, null=True)
-    estado = models.BooleanField()  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = 'venta'

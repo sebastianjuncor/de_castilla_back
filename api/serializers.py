@@ -1,16 +1,10 @@
 from rest_framework import serializers
 
-from pedidos.serializers import PedidoSerializer
 from .models import *
 
 class ProveedorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Proveedor
-        fields = '__all__'
-
-class RolSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rol
         fields = '__all__'
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -34,11 +28,6 @@ class InsumoSerializer(serializers.ModelSerializer):
         model = Insumo
         fields = '__all__'
 
-class PermisoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Permiso
-        fields = '__all__'
-
 class SaborSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sabor
@@ -49,17 +38,6 @@ class TipoMovimientoSerializer(serializers.ModelSerializer):
         model = TipoMovimiento
         fields = '__all__'
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    rol = RolSerializer(source = 'id_rol_fk', read_only = True)
-    class Meta:
-        model = Usuario
-        fields = '__all__'
-
-class VentaSerializer(serializers.ModelSerializer):
-    pedido = PedidoSerializer(source = 'id_pedido_fk', read_only = True)
-    class Meta:
-        model = Venta
-        fields = '__all__'
 
 class ProductoSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer(source = 'id_categoria_fk', read_only = True)
@@ -72,13 +50,6 @@ class SaborHasProductoSerializer(serializers.ModelSerializer):
     sabor = SaborSerializer(source = 'id_sabor_fk', read_only = True)
     class Meta:
         model = SaborHasProducto
-        fields = '__all__'
-
-class RolHasPermisoSerializer(serializers.ModelSerializer):
-    permiso = PermisoSerializer(source = 'id_permiso_fk', read_only = True)
-    rol = RolSerializer(source = 'id_rol_fk', read_only = True)
-    class Meta:
-        model = RolHasPermiso
         fields = '__all__'
 
 class OrdenCompraSerializer(serializers.ModelSerializer):
@@ -98,13 +69,6 @@ class DetalleOcSerializer(serializers.ModelSerializer):
     orden_compra = OrdenCompraSerializer(source = 'id_oc_fk', read_only = True)
     class Meta:
         model = DetalleOc
-        fields = '__all__'
-
-class DetalleVentaSerializer(serializers.ModelSerializer):
-    producto = ProductoSerializer(source = 'id_producto_fk', read_only = True)
-    venta = VentaSerializer(source = 'id_venta_fk', read_only = True)
-    class Meta:
-        model = DetalleVenta
         fields = '__all__'
 
 class HistoricoSerializer(serializers.ModelSerializer):

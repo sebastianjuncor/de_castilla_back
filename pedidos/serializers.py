@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from api.serializers import ProductoSerializer, UsuarioSerializer
+from api.serializers import ProductoSerializer
+from usuarios.serializers import UsuarioSerializer
 from .models import *
 
 class EstadoPedidoSerializer(serializers.ModelSerializer):
