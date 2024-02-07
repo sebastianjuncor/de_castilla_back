@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
-from usuarios.serializers import UsuarioSerializer
-
-
 from .models import *
-from api.serializers import ProductoSerializer
+
+from usuarios.serializers import UsuarioSerializer
+from inventarios.serializers import ProductoSerializer
 from pedidos.serializers import PedidoSerializer
 
 class VentaSerializer(serializers.ModelSerializer):

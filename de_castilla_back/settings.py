@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'api',
     'pedidos',
     'usuarios',
+    'ventas',
+    'proveedores',
     'corsheaders',
     'rest_framework',
     'django.contrib.admin',

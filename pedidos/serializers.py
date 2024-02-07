@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from api.serializers import ProductoSerializer
+from inventarios.serializers import ProductoSerializer
 from usuarios.serializers import UsuarioSerializer
 from .models import *
 
