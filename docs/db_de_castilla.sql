@@ -92,6 +92,8 @@ CREATE TABLE IF NOT EXISTS pedido (
     fecha_pedido DATE,
     id_estado_pedido_fk BIGINT,
     no_documento_usuario_fk BIGINT,
+    estrellas_pedido INT,
+    comentario_pedido VARCHAR(100),
     estado BIT(1) NOT NULL DEFAULT 1,
     PRIMARY KEY (id_pedido),
     FOREIGN KEY (id_estado_pedido_fk) REFERENCES estado_pedido (id_estado_pedido),
@@ -120,11 +122,9 @@ CREATE TABLE IF NOT EXISTS calificacion (
     id_calificacion BIGINT NOT NULL AUTO_INCREMENT,
     comentario_calificacion VARCHAR(255),
     estrallas_calificacion INT,
-    id_pedido_fk BIGINT,
     id_proveedor_fk BIGINT,
     estado BIT(1) NOT NULL DEFAULT 1,
     PRIMARY KEY (id_calificacion),
-    FOREIGN KEY (id_pedido_fk) REFERENCES pedido (id_pedido),
     FOREIGN KEY (id_proveedor_fk) REFERENCES proveedor (id_proveedor)
     );
 

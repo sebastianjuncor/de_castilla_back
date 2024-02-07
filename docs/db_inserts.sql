@@ -343,18 +343,6 @@ INSERT INTO Pedido (descripcion_Pedido, fecha_Pedido, id_Estado_Pedido_fk, no_Do
   ('Sin descripción', '2023-06-12 17:25:00', 3, 7890123459),
   ('Sin descripción', '2023-06-12 18:40:00', 2, 5678901238);
   
-INSERT INTO Calificacion (estrallas_Calificacion, comentario_Calificacion, id_Pedido_FK) VALUES
-  (5, "El pedido llegó antes de lo esperado. ¡Excelente servicio!", 1),
-  (4, "Buena calidad de los productos. Recomendado.", 2),
-  (3, "El pedido tuvo un ligero retraso en la entrega.", 3),
-  (5, "Muy satisfecho con la atención al cliente.", 4),
-  (2, "Algunos productos llegaron dañados.", 5),
-  (4, "Buen servicio en general.", 6),
-  (5, "Rápido enví­o y productos de calidad.", 7),
-  (3, "La comunicación con el vendedor fue un poco difí­cil.", 8),
-  (1, "El pedido nunca llegó y no recibí­ ninguna explicación.", 9),
-  (4, "El empaque podrí­a mejorar, pero los productos están bien.", 10);
-  
 INSERT INTO Calificacion (estrallas_Calificacion,comentario_Calificacion, id_Proveedor_FK) VALUES
   (5, 'Excelente proveedor', 1),
   (4, 'Buen servicio y productos de calidad', 1),
