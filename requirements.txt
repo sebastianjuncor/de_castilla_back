@@ -1,6 +1,9 @@
 asgiref==3.7.2
 Django==5.0.2
+<<<<<<< HEAD
 django-cors-headers==4.3.1
+=======
+>>>>>>> origin/main
 djangorestframework==3.14.0
 mysqlclient==2.2.3
 pytz==2024.1

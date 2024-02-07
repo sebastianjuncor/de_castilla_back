@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3&^vad9zqa56$11s%@!0g&39d@3_8m55nf3f@x16((v*@y7%bv'
+SECRET_KEY = 'django-insecure-i#r1hvv*-ivpib*s-cy2v1p%!$1_(u_5a$ezr2g6j9)i$1ju_0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,9 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'rest_framework',
-    'api',
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,14 +39,35 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+LOCAL_APPS = [
+    'pedidos',
+    'usuarios',
+    'ventas',
+    'proveedores',
+    'inventarios',
+    
+]
+
+THIRD_APPS = [
+    'corsheaders',
+    'rest_framework',
+]
+
+INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS =[
+    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = 'de_castilla_back.urls'
@@ -77,8 +96,12 @@ WSGI_APPLICATION = 'de_castilla_back.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':  'db_de_castilla',
+        'PASSWORD': '123456',
+        'USER': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
