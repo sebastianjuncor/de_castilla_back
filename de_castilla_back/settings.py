@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i#r1hvv*-ivpib*s-cy2v1p%!$1_(u_5a$ezr2g6j9)i$1ju_0'
+SECRET_KEY = 'django-insecure-eq6p5-!fynf4+p#q5z$g(!jibp5ng_ky)v-hg67s6oacppm_w='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -40,13 +40,32 @@ BASE_APPS = [
 ]
 
 LOCAL_APPS = [
-    'pedidos',
-    'usuarios',
-    'ventas',
-    'proveedores',
-    'inventarios',
-    
+    'apps.calificacion',
+    'apps.categoria',
+    'apps.detalle_oc',
+    'apps.detalle_pedido',
+    'apps.detalle_venta',
+    'apps.estado_insumo',
+    'apps.estado_oc',
+    'apps.estado_pedido',
+    'apps.historico',
+    'apps.insumo',
+    'apps.inventario',
+    'apps.oc_has_provedor',
+    'apps.orden_compra',
+    'apps.pedido',
+    'apps.permiso',
+    'apps.producto',
+    'apps.proveedor',
+    'apps.rol',
+    'apps.rol_has_permisos',
+    'apps.sabor',
+    'apps.sabor_has_producto',
+    'apps.tipo_movimiento',
+    'apps.usuarios',
+    'apps.venta',
 ]
+
 
 THIRD_APPS = [
     'corsheaders',
@@ -56,25 +75,32 @@ THIRD_APPS = [
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
 
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+    )
+    
 }
+
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'no_documento_usuario',
+    # otras configuraciones de SIMPLE_JWT
+}
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
-CORS_ALLOWED_ORIGINS =[
-    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = 'de_castilla_back.urls'
@@ -112,6 +138,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
