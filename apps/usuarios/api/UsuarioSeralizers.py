@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from ..models import *
+from apps.rol.api.RoleSeralizers import RolSeralizers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework import serializers
 
@@ -7,6 +9,7 @@ from rest_framework import serializers
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
+    rol = RolSeralizers(source='id_rol_fk', read_only=True)
     class Meta:
         model = Usuario
         fields = '__all__'  # Incluir todos los campos del modelo
