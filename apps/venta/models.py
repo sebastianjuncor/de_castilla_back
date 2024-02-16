@@ -7,8 +7,8 @@ class Venta(models.Model):
     fecha_venta = models.DateField()
     hora_venta = models.TimeField()
     total_venta = models.IntegerField()
-    id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    no_documento_usuario_fk = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_pedido_fk = models.ForeignKey(Pedido, db_column='id_pedido_fk', on_delete=models.CASCADE, null=True, blank=True)
+    no_documento_usuario_fk = models.ForeignKey(Usuario, db_column='no_documento_usuario_fk', on_delete=models.CASCADE, null=True, blank=True)
     estado = models.BooleanField(default=True)
 
     class Meta:

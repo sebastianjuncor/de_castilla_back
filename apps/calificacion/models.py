@@ -5,7 +5,7 @@ class Calificacion(models.Model):
     id_calificacion = models.AutoField(primary_key=True)
     comentario_calificacion = models.TextField()
     estrellas_calificacion = models.IntegerField()
-    id_proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
+    id_proveedor_fk = models.ForeignKey(Proveedor,db_column='id_proveedor_fk', on_delete=models.CASCADE, blank=True, null=True)
     estado = models.BooleanField(default=True)
 
     class Meta:

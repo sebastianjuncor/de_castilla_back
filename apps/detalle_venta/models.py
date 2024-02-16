@@ -6,8 +6,8 @@ class DetalleVenta(models.Model):
     id_detalle_venta = models.AutoField(primary_key=True)
     cantidad_producto = models.IntegerField()
     subtotal_detalle_venta = models.IntegerField()
-    id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    id_venta = models.ForeignKey(Venta, on_delete=models.CASCADE)
+    id_producto_fk = models.ForeignKey(Producto, db_column='id_producto_fk', on_delete=models.CASCADE, blank=True, null=True)
+    id_venta_fk = models.ForeignKey(Venta, db_column='id_venta_fk', on_delete=models.CASCADE, blank=True, null=True)
     estado = models.BooleanField(default=True)
 
     class Meta:

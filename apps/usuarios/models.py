@@ -30,12 +30,12 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(no_documento_usuario, nombre_usuario, apellido_usuario, email, password, id_rol, **extra_fields)
 
 class Usuario(AbstractBaseUser, PermissionsMixin):
-    no_documento_usuario = models.BigAutoField(primary_key=True)
+    no_documento_usuario = models.BigIntegerField(primary_key=True)
     apellido_usuario = models.CharField(max_length=255, blank=True, null=True)
     celular_usuario = models.BigIntegerField(blank=True, null=True)
     email = models.EmailField(max_length=255, blank=True, null=True, unique=True)
     nombre_usuario = models.CharField(max_length=255, blank=True, null=True)
-    id_rol = models.ForeignKey(Rol, on_delete=models.SET_NULL, null=True)
+    id_rol_fk = models.ForeignKey(Rol, on_delete=models.SET_NULL,db_column='id_rol_fk', null=True)
     estado = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -47,3 +47,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    class Meta:
+        db_table = 'usuario'
