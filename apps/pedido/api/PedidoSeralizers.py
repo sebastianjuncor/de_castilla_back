@@ -9,8 +9,8 @@ from apps.usuarios.api.UsuarioSeralizers import UsuarioSerializer
 
 
 class PedidoSeralizers(serializers.ModelSerializer):
-    estado_pedido = EstadoPedidoSeralizers(source='id_categoria_fk', read_only=True)  # Relación con el modelo EstadoPedido
-    usuario = UsuarioSerializer(source='id_categoria_fk', read_only=True)  # Relación con el modelo Usuario
+    estado_pedido = EstadoPedidoSeralizers(source='id_estado_pedido_fk', read_only=True)  # Relación con el modelo EstadoPedido
+    usuario = UsuarioSerializer(source='no_Documento_Usuario_fk', read_only=True)  # Relación con el modelo Usuario
     class Meta:
         model = Pedido
         fields = '__all__'  # Incluir todos los campos del modelo
