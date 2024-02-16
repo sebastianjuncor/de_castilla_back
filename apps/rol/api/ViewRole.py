@@ -8,4 +8,4 @@ from .RoleSeralizers import RolSeralizers
 class RolViewSet(viewsets.ModelViewSet):
     serializer_class = RolSeralizers
     queryset =  RolSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

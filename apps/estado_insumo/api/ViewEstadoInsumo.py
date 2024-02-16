@@ -9,4 +9,4 @@ from .EstadoInsumoSeralizers import EstadoInsumoSeralizers
 class EstadoInsumoViewSet(viewsets.ModelViewSet):
     serializer_class = EstadoInsumoSeralizers # Fix the typo in the variable name
     queryset =  EstadoInsumoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

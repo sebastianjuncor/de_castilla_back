@@ -9,4 +9,4 @@ from .EstadoPedidoSeralizers import  EstadoPedidoSeralizers
 class EstadoPedidoViewSet(viewsets.ModelViewSet):
     serializer_class = EstadoPedidoSeralizers # Fix the typo in the variable name
     queryset =  EstadoPedidoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

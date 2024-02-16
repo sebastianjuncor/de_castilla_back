@@ -9,4 +9,4 @@ from .PermisoSeralizers import PrermisoSeralizers
 class PermisoViewSet(viewsets.ModelViewSet):
     serializer_class = PrermisoSeralizers  # Fix the typo in the variable name
     queryset =  PrermisoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

@@ -9,4 +9,4 @@ from .HistoricoSeralizers import  HistoricoSeralizers
 class HistoricoViewSet(viewsets.ModelViewSet):
     serializer_class = HistoricoSeralizers # Fix the typo in the variable name
     queryset =  HistoricoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

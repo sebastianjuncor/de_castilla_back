@@ -11,4 +11,4 @@ from .DetalleOcSeralizers import DetalleOCSeralizers
 class DetalleOCViewSet(viewsets.ModelViewSet):
     serializer_class =  DetalleOCSeralizers # Fix the typo in the variable name
     queryset =   DetalleOCSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

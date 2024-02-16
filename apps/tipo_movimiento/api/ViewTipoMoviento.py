@@ -7,4 +7,4 @@ from rest_framework.permissions import IsAuthenticated
 class TipoMoviento(viewsets.ModelViewSet):
     serializer_class = TipoMovientoSeralizer
     queryset =  TipoMovientoSeralizer.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

@@ -12,4 +12,4 @@ from .CategoriaSeralizers import CategoriaSeralizers
 class CategoriaViewSet(viewsets.ModelViewSet):
     serializer_class =  CategoriaSeralizers # Fix the typo in the variable name
     queryset =   CategoriaSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

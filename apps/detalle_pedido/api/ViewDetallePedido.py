@@ -10,4 +10,4 @@ from apps.detalle_pedido.api.DetallePedidoSeralizers import DetallePedidoSeraliz
 class DetallePedidoViewSet(viewsets.ModelViewSet):
     serializer_class =  DetallePedidoSeralizers # Fix the typo in the variable name
     queryset =   DetallePedidoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

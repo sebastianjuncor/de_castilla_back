@@ -5,4 +5,4 @@ from ..api.SaborSeralizers import SaborSerializer
 class SaborViewSet(viewsets.ModelViewSet):
     serializer_class = SaborSerializer
     queryset =  SaborSerializer.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

@@ -7,4 +7,4 @@ from rest_framework.permissions import IsAuthenticated
 class VentaViewSet(viewsets.ModelViewSet):
     serializer_class = VentaSerializer
     queryset =  VentaSerializer.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

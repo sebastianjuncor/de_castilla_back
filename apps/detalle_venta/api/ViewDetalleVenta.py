@@ -11,4 +11,4 @@ from .DetalleVentaSeralizers import DetalleVentaSeralizers
 class DetalleVentaViewSet(viewsets.ModelViewSet):
     serializer_class = DetalleVentaSeralizers # Fix the typo in the variable name
     queryset =  DetalleVentaSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

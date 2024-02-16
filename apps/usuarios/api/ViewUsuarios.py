@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UsuarioSerializer
     queryset =  UsuarioSerializer.Meta.model.objects.all()
-    # permission_classes = [IsAuthenticated]
+    # # permission_classes = [IsAuthenticated]
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer

@@ -7,4 +7,4 @@ from .InsumoSeralizers import  InsumoSeralizers
 class InsumoViewSet(viewsets.ModelViewSet):
     serializer_class = InsumoSeralizers # Fix the typo in the variable name
     queryset =  InsumoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

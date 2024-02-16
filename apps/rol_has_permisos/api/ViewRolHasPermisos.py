@@ -7,4 +7,4 @@ from ..api.RolHasPermisosSeralizers import RolHasPermisosSeralizers
 class RolHasPermisosViewSet(viewsets.ModelViewSet):
     serializer_class = RolHasPermisosSeralizers
     queryset =  RolHasPermisosSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

@@ -15,4 +15,4 @@ from .ClasificacionSeralizers import CalificacionSeralizers
 class CalificacionViewSet(viewsets.ModelViewSet):
     serializer_class =  CalificacionSeralizers # Fix the typo in the variable name
     queryset =   CalificacionSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

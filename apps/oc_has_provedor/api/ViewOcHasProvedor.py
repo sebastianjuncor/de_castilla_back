@@ -7,4 +7,4 @@ from .OcHasProvedorSeralizers import OcHasProvedorSeralizers
 class OcHasProvedorViewSet(viewsets.ModelViewSet):
     serializer_class = OcHasProvedorSeralizers # Fix the typo in the variable name
     queryset =  OcHasProvedorSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

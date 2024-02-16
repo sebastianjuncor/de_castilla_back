@@ -7,4 +7,4 @@ from .PedidoSeralizers import PedidoSeralizers
 class PedidoViewSet(viewsets.ModelViewSet):
     serializer_class = PedidoSeralizers  # Fix the typo in the variable name
     queryset =  PedidoSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

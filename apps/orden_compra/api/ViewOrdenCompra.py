@@ -7,4 +7,4 @@ from .OrdenCompraSeralizers import OrdenCompraSeralizers
 class OrdenCompraViewSet(viewsets.ModelViewSet):
     serializer_class = OrdenCompraSeralizers # Fix the typo in the variable name
     queryset =  OrdenCompraSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

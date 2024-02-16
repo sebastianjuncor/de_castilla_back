@@ -7,4 +7,4 @@ from ..api.SaborHasProductoSeralizers import SaborHasProductoSeralizer
 class SaborHasProducto(viewsets.ModelViewSet):
     serializer_class = SaborHasProductoSeralizer
     queryset =  SaborHasProductoSeralizer.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]

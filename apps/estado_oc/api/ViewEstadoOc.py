@@ -9,4 +9,4 @@ from .EstadoOcSeralizers import  EstadoOCSeralizers
 class EstadoOCViewSet(viewsets.ModelViewSet):
     serializer_class = EstadoOCSeralizers # Fix the typo in the variable name
     queryset =  EstadoOCSeralizers.Meta.model.objects.all()
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
