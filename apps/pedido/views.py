@@ -34,7 +34,7 @@ def generate_pdf(request):
 
     # Crear una lista de datos para el contenido principal
     data = [
-        ["ID Pedido", "Descripción", "Fecha", "Estado", "Documento del Usuario"]
+        ["N° Pedido", "Descripción", "Fecha", "Estado", "Documento", "Cliente"]
     ]
     # Agregar los datos de cada pedido a la lista de datos
     for pedido in pedidos:
@@ -43,7 +43,8 @@ def generate_pdf(request):
             pedido.descripcion_pedido,
             str(pedido.fecha_pedido),
             pedido.id_estado_pedido_fk.nombre_estado,  # Suponiendo que 'nombre_estado' es un campo en EstadoPedido
-            pedido.no_Documento_Usuario_fk.no_documento_usuario  # Suponiendo que 'numero_documento' es un campo en Usuario
+            pedido.no_Documento_Usuario_fk.no_documento_usuario, # Suponiendo que 'numero_documento' es un campo en Usuario
+            pedido.no_Documento_Usuario_fk.nombre_usuario, # Suponiendo que 'nombre_usuario' es un campo en Usuario
         ])
 
     # Crear una tabla y definir su estilo

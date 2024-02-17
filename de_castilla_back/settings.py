@@ -137,7 +137,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':  'db_de_castilla',
-        'PASSWORD': '',
+        'PASSWORD': '123456',
         'USER': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
