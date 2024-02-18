@@ -42,13 +42,19 @@
    python manage.py migrate
    ```
 
-6. **Ejecutar el script de inserción de datos:**
+6. **Ejecutar el script de triggers, storage proceudres y views:**
+
+   Copiar el script _**db_views_triggers_SPs.sql**_ en la carpeta _**docs**_.
+
+   Ejecutar el script en MySQL.
+
+7. **Ejecutar el script de inserción de datos:**
 
    Copiar el script _**db_inserts.sql**_ en la carpeta _**docs**_.
 
    Ejecutar el script en MySQL.
 
-7. **Iniciar el servidor:**
+8. **Iniciar el servidor:**
    ```bash
    python manage.py runserver
    ```
