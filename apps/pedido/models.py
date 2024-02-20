@@ -8,6 +8,7 @@ class Pedido(models.Model):
     fecha_pedido = models.DateField()
     id_estado_pedido_fk = models.ForeignKey(EstadoPedido,db_column='id_estado_pedido_fk', on_delete=models.CASCADE, blank=True, null=True)
     no_Documento_Usuario_fk = models.ForeignKey(Usuario,db_column='no_Documento_Usuario_fk', on_delete=models.CASCADE, blank=True, null=True)
+    calificacion_pedido = models.IntegerField(blank=True, null=True)
     estado = models.BooleanField(default=True)
 
     class Meta:

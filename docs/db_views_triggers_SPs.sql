@@ -3,13 +3,15 @@
     TRIGGERS
 __________________________________________________________*/
 use db_de_castilla;
+
+
+/*---Crear venta asociada cuando el pedido finalice ---*/
 DELIMITER $$
 
 CREATE TRIGGER TG_pedidofinalizado_AU AFTER UPDATE ON pedido
 FOR EACH ROW
 BEGIN
-    DECLARE total_venta DECIMAL(10, 2); -- Cambié BIGINT a DECIMAL(10, 2)
-
+    DECLARE total_venta BIGINT;
     IF NEW.id_estado_pedido_fk = 7 THEN -- 7 = Finalizado (estado pedido)
         -- Calcular el total de la venta sumando los subtotales de los detalles del pedido
         SELECT SUM(subtotal_detalle_pedido) INTO total_venta
@@ -32,7 +34,6 @@ BEGIN
 END$$
 
 DELIMITER ;
-
 
 
 
