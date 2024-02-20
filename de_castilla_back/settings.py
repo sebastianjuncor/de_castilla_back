@@ -64,6 +64,7 @@ LOCAL_APPS = [
     'apps.tipo_movimiento',
     'apps.usuarios',
     'apps.venta',
+    'apps.correo',
 ]
 
 
@@ -187,3 +188,14 @@ STATIC_ROOT = './static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuración del servidor de correo saliente (SMTP)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'  # Dirección del servidor SMTP
+EMAIL_PORT = 587  # Puerto del servidor SMTP (usualmente 587 para TLS)
+EMAIL_USE_TLS = True  # Usar TLS (si es necesario)
+EMAIL_HOST_USER = 'ariasruizcamilaa@gmail.com'
+EMAIL_HOST_PASSWORD = ''  # Contraseña del servidor SMTP
+
+# Otras opciones
+DEFAULT_FROM_EMAIL = 'noreply@example.com'  # Dirección de correo electrónico
