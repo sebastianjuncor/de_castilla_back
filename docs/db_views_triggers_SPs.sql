@@ -16,7 +16,7 @@ BEGIN
         -- Calcular el total de la venta sumando los subtotales de los detalles del pedido
         SELECT SUM(subtotal_detalle_pedido) INTO total_venta
         FROM detalle_pedido
-        WHERE id_pedido_fk = NEW.id_pedido AND estado = 1;
+        WHERE id_pedido_fk = NEW.id_pedido;
 
         -- Insertar en la tabla venta
         INSERT INTO venta (fecha_venta, hora_venta, total_venta, id_pedido_fk, no_documento_usuario_fk, estado)

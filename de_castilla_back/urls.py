@@ -66,5 +66,5 @@ urlpatterns = [
     path('castilla/api/', include('apps.tipo_movimiento.api.router')),
     path('castilla/api/', include('apps.usuarios.api.router')),
     path('castilla/api/', include('apps.venta.api.router')),
-    path('correo/', include('apps.correo.urls')),
+    path('castilla/api/correo/', include('apps.correo.urls')),
 ]
