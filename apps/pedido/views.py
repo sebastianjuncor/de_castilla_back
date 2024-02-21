@@ -1,8 +1,7 @@
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Spacer
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Spacer, Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.platypus import Paragraph
 from django.http import HttpResponse
 from .models import Pedido
 from datetime import date
@@ -31,6 +30,9 @@ def generate_pdf(request):
 
     # Crea un objeto SimpleDocTemplate para generar el PDF
     doc = SimpleDocTemplate(response, pagesize=letter)
+
+    # Obtener los estilos por defecto
+    styles = getSampleStyleSheet()
 
     # Crear una lista de datos para el contenido principal
     data = [
@@ -63,25 +65,24 @@ def generate_pdf(request):
     # Crear una lista de elementos Platypus para agregar al PDF
     elements = []
 
-    # Añadir espacio para el logo
-    elements.append(Spacer(1, 2 * 20))  # 2 pulgadas
+    # Agregar el texto "Logo empresarial" a la izquierda
+    elements.append(Paragraph("Logo empresarial", styles['Normal']))
+
+    # Agregar la fecha en la esquina superior derecha
+    date_style = ParagraphStyle(name='Date', parent=styles['Normal'], alignment=2)
+    elements.append(Paragraph(f"{today}", date_style))
 
     # Agregar el título
-    styles = getSampleStyleSheet()
-    title = Paragraph("Reporte de Pedidos", styles['Title'])
-    elements.append(title)
+    title = "Reporte de Pedidos"
+    title_style = ParagraphStyle(name='Title', parent=styles['Title'], alignment=1)
+    elements.append(Paragraph(title, title_style))
 
-    # Definir estilo para la fecha centrada
-    centered_style = ParagraphStyle(
-        name='Centered',
-        alignment=1,
-        parent=styles['Normal']
-    )
+    # Agregar una línea horizontal debajo del título y la fecha
+    elements.append(Spacer(1, 12))
+    elements.append(Paragraph("<hr/>", styles['Normal']))
 
-    # Agregar la fecha
-    date_paragraph = Paragraph("Fecha: " + today, centered_style)
-    elements.append(date_paragraph)
-    elements.append(Spacer(1, 12))  # 12 puntos de espacio
+    # Agregar espacio después de la línea horizontal
+    elements.append(Spacer(1, 12))
 
     # Agregar la tabla al contenido
     elements.append(table)
