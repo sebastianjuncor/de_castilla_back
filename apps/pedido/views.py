@@ -72,17 +72,11 @@ def generate_pdf(request):
     date_style = ParagraphStyle(name='Date', parent=styles['Normal'], alignment=2)
     elements.append(Paragraph(f"{today}", date_style))
 
-    # Agregar el título
-    title = "Reporte de Pedidos"
-    title_style = ParagraphStyle(name='Title', parent=styles['Title'], alignment=1)
-    elements.append(Paragraph(title, title_style))
-
-    # Agregar una línea horizontal debajo del título y la fecha
-    elements.append(Spacer(1, 12))
-    elements.append(Paragraph("<hr/>", styles['Normal']))
+     # Agregar el título en el centro con el color cambiado
+    elements.append(Paragraph("<br/><br/><br/>Reporte de pedidos", ParagraphStyle(name='TitleStyle', fontName='Helvetica-Bold', fontSize=16, textColor=colors.HexColor('#8C274C'), alignment=1)))
 
     # Agregar espacio después de la línea horizontal
-    elements.append(Spacer(1, 12))
+    elements.append(Spacer(1, 36))
 
     # Agregar la tabla al contenido
     elements.append(table)
