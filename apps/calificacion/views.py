@@ -33,7 +33,7 @@ def generate_pdf(request):
     elements.append(Paragraph("Logo empresarial", ParagraphStyle(name='LogoStyle', fontName='Helvetica-Bold', fontSize=12, textColor=colors.HexColor('#732F48'))))
 
     # Agregar la fecha en la esquina superior derecha
-    elements.append(Paragraph(f"Fecha de creación: {date.today().strftime('%d/%m/%Y')}", ParagraphStyle(name='DateStyle', fontName='Helvetica-Bold', fontSize=10, alignment=2)))
+    elements.append(Paragraph(f"{date.today().strftime('%d/%m/%Y')}", ParagraphStyle(name='DateStyle', fontName='Helvetica-Bold', fontSize=10, alignment=2)))
 
     # Agregar el título en el centro
     elements.append(Paragraph("<br/><br/><br/>Reporte de calificacion", ParagraphStyle(name='TitleStyle', fontName='Helvetica-Bold', fontSize=16, textColor=colors.HexColor('#8C274C'), alignment=1)))

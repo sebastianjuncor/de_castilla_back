@@ -1,8 +1,8 @@
 from rest_framework import routers
 from django.urls import path
 
-from apps.venta.views import generate_pdf
 from .ViewVenta import VentaViewSet
+from apps.venta.views import generate_pdf
 
 
 

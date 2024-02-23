@@ -65,12 +65,13 @@ def generate_pdf(request):
     # Crear una lista de elementos Platypus para agregar al PDF
     elements = []
 
-    # Agregar el texto "Logo empresarial" a la izquierda
-    elements.append(Paragraph("Logo empresarial", styles['Normal']))
+     # Agregar el texto "Logo empresarial" en la esquina superior izquierda
+    elements.append(Paragraph("Logo empresarial", ParagraphStyle(name='LogoStyle', fontName='Helvetica-Bold', fontSize=12, textColor=colors.HexColor('#732F48'))))
+
 
     # Agregar la fecha en la esquina superior derecha
-    date_style = ParagraphStyle(name='Date', parent=styles['Normal'], alignment=2)
-    elements.append(Paragraph(f"{today}", date_style))
+    elements.append(Paragraph(f"{date.today().strftime('%d/%m/%Y')}", ParagraphStyle(name='DateStyle', fontName='Helvetica-Bold', fontSize=10, alignment=2)))
+
 
      # Agregar el título en el centro con el color cambiado
     elements.append(Paragraph("<br/><br/><br/>Reporte de pedidos", ParagraphStyle(name='TitleStyle', fontName='Helvetica-Bold', fontSize=16, textColor=colors.HexColor('#8C274C'), alignment=1)))
